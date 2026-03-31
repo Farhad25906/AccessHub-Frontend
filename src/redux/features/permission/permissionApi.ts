@@ -2,7 +2,7 @@ import { baseApi } from '../../api/baseApi';
 
 export const permissionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    assignPermission: builder.mutation({
+    assignPermissions: builder.mutation({
       query: (data) => ({
         url: '/permissions/assign',
         method: 'POST',
@@ -10,13 +10,21 @@ export const permissionApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['User'],
     }),
-    removePermission: builder.mutation({
+    removePermissions: builder.mutation({
       query: (data) => ({
         url: '/permissions/remove',
-        method: 'DELETE',
+        method: 'POST', // Changed from DELETE because it has a body in my service impl
         body: data,
       }),
       invalidatesTags: ['User'],
+    }),
+    getAllPermissions: builder.query({
+      query: () => '/permissions',
+      providesTags: ['Permission'],
+    }),
+    getUserPermissions: builder.query({
+      query: (userId) => `/permissions/user/${userId}`,
+      providesTags: ['Permission'],
     }),
     getAuditLogs: builder.query({
       query: () => '/audit-logs',
@@ -26,7 +34,9 @@ export const permissionApi = baseApi.injectEndpoints({
 });
 
 export const { 
-  useAssignPermissionMutation, 
-  useRemovePermissionMutation,
+  useAssignPermissionsMutation, 
+  useRemovePermissionsMutation,
+  useGetAllPermissionsQuery,
+  useGetUserPermissionsQuery,
   useGetAuditLogsQuery
 } = permissionApi;

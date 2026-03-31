@@ -164,7 +164,7 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
                     type="button"
                     onClick={onClose}
                     disabled={isCreating}
-                    className="flex-1 py-3 px-4 rounded-xl border border-[var(--border)] bg-white text-[var(--text-dark)] font-semibold hover:bg-[#F5F0EB] transition-colors disabled:opacity-50"
+                    className="flex-1 py-3 px-4 rounded-xl bg-[var(--orange)]/10 text-[var(--orange)] font-semibold hover:bg-[var(--orange)] hover:text-white transition-all disabled:opacity-50 border border-[var(--orange)]/20"
                   >
                     Cancel
                   </button>

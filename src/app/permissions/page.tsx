@@ -3,8 +3,8 @@
 import MainLayout from '@/components/layout/MainLayout';
 import { useGetAllUsersQuery } from '@/redux/features/user/userApi';
 import { 
-  useAssignPermissionMutation, 
-  useRemovePermissionMutation 
+  useAssignPermissionsMutation, 
+  useRemovePermissionsMutation 
 } from '@/redux/features/permission/permissionApi';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
@@ -13,14 +13,14 @@ import { toast } from 'react-hot-toast';
 
 const AVAILABLE_PERMISSIONS = [
   'view_users', 'create_users', 'edit_users', 'delete_users',
-  'view_audit_logs', 'view_reports', 'manage_tasks'
+  'view_audit_logs', 'view_reports', 'manage_tasks', 'create_tasks'
 ];
 
 export default function PermissionsPage() {
   const { data: usersData, isLoading } = useGetAllUsersQuery(undefined);
   const { user: currentUser } = useSelector((state: RootState) => state.auth);
-  const [assignPermission] = useAssignPermissionMutation();
-  const [removePermission] = useRemovePermissionMutation();
+  const [assignPermissions] = useAssignPermissionsMutation();
+  const [removePermissions] = useRemovePermissionsMutation();
 
   const handleTogglePermission = async (userId: string, permissionName: string, isAssigned: boolean) => {
     // Permission atom assignment

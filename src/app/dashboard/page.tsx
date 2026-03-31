@@ -14,10 +14,10 @@ export default function Dashboard() {
   const { user } = useSelector((state: RootState) => state.auth);
 
   const stats = [
-    { label: 'Total Users', value: '1,284', icon: Users, color: 'blue', trend: '+12%', up: true },
-    { label: 'Permissions', value: '24', icon: Shield, color: 'indigo', trend: '+2', up: true },
-    { label: 'System Logs', value: '45.2k', icon: Activity, color: 'emerald', trend: '-3%', up: false },
-    { label: 'Security Score', value: '98%', icon: Lock, color: 'amber', trend: 'Optimal', up: true },
+    { label: 'Total Users', value: '1,284', icon: Users, color: 'orange', trend: '+12%', up: true },
+    { label: 'Permissions', value: '24', icon: Shield, color: 'orange', trend: '+2', up: true },
+    { label: 'System Logs', value: '45.2k', icon: Activity, color: 'orange', trend: '-3%', up: false },
+    { label: 'Security Score', value: '98%', icon: Lock, color: 'orange', trend: 'Optimal', up: true },
   ];
 
   return (
@@ -38,13 +38,13 @@ export default function Dashboard() {
               key={stat.label}
               className="bg-white border border-[var(--border)] p-6 rounded-2xl relative overflow-hidden group hover:border-[var(--orange-lt)] transition-all shadow-[0_4px_40px_rgba(0,0,0,0.04)]"
             >
-              <div className={`p-3 bg-${stat.color}-50 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform`}>
-                <stat.icon className={`w-6 h-6 text-${stat.color}-500`} />
+              <div className={`p-3 bg-orange-50 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform`}>
+                <stat.icon className={`w-6 h-6 text-orange-500`} />
               </div>
               <h3 className="text-[var(--text-mid)] text-sm font-medium">{stat.label}</h3>
               <p className="text-3xl font-bold text-[var(--text-dark)] mt-1">{stat.value}</p>
               
-              <div className={`mt-3 flex items-center text-xs font-bold ${stat.up ? 'text-emerald-500' : 'text-rose-500'}`}>
+              <div className={`mt-3 flex items-center text-xs font-bold ${stat.up ? 'text-orange-500' : 'text-slate-400'}`}>
                 {stat.up ? <TrendingUp className="w-4 h-4 mr-1" /> : <Activity className="w-4 h-4 mr-1" />}
                 {stat.trend}
               </div>
@@ -74,17 +74,17 @@ export default function Dashboard() {
                   disabled={!user?.permissions.includes(action.permission)}
                   className={`w-full flex items-center justify-between p-4 rounded-xl transition-all border ${
                     user?.permissions.includes(action.permission)
-                      ? 'bg-white border-[var(--border)] hover:border-[var(--orange-lt)] text-[var(--text-dark)] shadow-[0_4px_20px_rgba(0,0,0,0.03)]'
+                      ? 'bg-[var(--orange-btn)] border-transparent text-white shadow-[0_4px_20px_rgba(242,101,34,0.3)] hover:opacity-90 active:translate-y-[1px]'
                       : 'bg-[#F5F0EB] border-[var(--border)] opacity-60 grayscale cursor-not-allowed text-[var(--text-mid)]'
                   }`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="p-2 bg-[var(--sidebar-bg)] border border-[var(--border)] rounded-lg">
-                      <action.icon className="w-5 h-5 text-[var(--orange)]" />
+                    <div className={`p-2 rounded-lg ${user?.permissions.includes(action.permission) ? 'bg-white/20 border border-white/30' : 'bg-[var(--sidebar-bg)] border border-[var(--border)]'}`}>
+                      <action.icon className={`w-5 h-5 ${user?.permissions.includes(action.permission) ? 'text-white' : 'text-[var(--orange)]'}`} />
                     </div>
-                    <span className="font-semibold text-sm">{action.label}</span>
+                    <span className="font-bold text-sm tracking-tight">{action.label}</span>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-[var(--text-light)]" />
+                  <ChevronRight className={`w-4 h-4 ${user?.permissions.includes(action.permission) ? 'text-white' : 'text-[var(--text-light)]'}`} />
                 </button>
               ))}
             </div>
