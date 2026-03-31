@@ -8,7 +8,8 @@ const baseQuery = fetchBaseQuery({
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
     if (token) {
-      headers.set('authorization', `${token}`);
+      // Use Bearer prefix for standard compliance
+      headers.set('authorization', token.startsWith('Bearer ') ? token : `Bearer ${token}`);
     }
     return headers;
   },

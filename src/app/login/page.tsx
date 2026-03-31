@@ -27,8 +27,19 @@ export default function LoginPage() {
       const decodedUser: any = jwtDecode(token);
 
       // Store in cookies for server middleware
-      setCookie('accessToken', token, { maxAge: 60 * 60 * 24 * 7 });
-      setCookie('userPermissions', JSON.stringify(permissions), { maxAge: 60 * 60 * 24 * 7 });
+      const isProduction = window.location.protocol === 'https:';
+      setCookie('accessToken', token, { 
+        maxAge: 60 * 60 * 24 * 7,
+        path: '/',
+        secure: isProduction,
+        sameSite: 'lax'
+      });
+      setCookie('userPermissions', JSON.stringify(permissions), { 
+        maxAge: 60 * 60 * 24 * 7,
+        path: '/',
+        secure: isProduction,
+        sameSite: 'lax'
+      });
 
       dispatch(setUser({ user: { id: decodedUser.userId, email, role: { name: decodedUser.role }, permissions }, token }));
 
