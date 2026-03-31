@@ -46,6 +46,11 @@ Premium, permission-driven Role-Based Access Control (RBAC) dashboard built with
    npm run dev
    ```
 
+## 🔐 Test Credentials
+For initial testing after seeding the database:
+- **Email**: `admin@example.com`
+- **Password**: `admin123`
+
 ## 🏗️ Project Architecture
 - **`/app`**: Next.js 14 app router for file-based navigation and route guards.
 - **`/redux`**: Centralized store and RTK Query API definitions for seamless backend synchronization.

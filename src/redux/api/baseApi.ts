@@ -9,7 +9,7 @@ const baseQuery = fetchBaseQuery({
     const token = (getState() as RootState).auth.token;
     if (token) {
       // Use Bearer prefix for standard compliance
-      headers.set('authorization', token.startsWith('Bearer ') ? token : `Bearer ${token}`);
+      headers.set('Authorization', token.startsWith('Bearer ') ? token : `Bearer ${token}`);
     }
     return headers;
   },
