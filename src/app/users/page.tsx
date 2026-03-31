@@ -6,8 +6,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { Trash2, Edit, Plus, UserPlus, ShieldAlert } from 'lucide-react';
 import { toast } from 'react-hot-toast';
+import { useState } from 'react';
+import AddUserModal from '@/components/ui/AddUserModal';
 
 export default function UsersPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { data: usersData, isLoading } = useGetAllUsersQuery(undefined);
   const { user: currentUser } = useSelector((state: RootState) => state.auth);
   const [deleteUser] = useDeleteUserMutation();
@@ -36,7 +39,10 @@ export default function UsersPage() {
             <p className="text-slate-400 mt-1">Manage platform users and their primary roles.</p>
           </div>
           {canCreate && (
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-all">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-all shadow-md active:translate-y-[1px]"
+            >
               <UserPlus className="w-5 h-5" />
               <span>Add User</span>
             </button>
@@ -118,6 +124,11 @@ export default function UsersPage() {
           </div>
         </div>
       </div>
+
+      <AddUserModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </MainLayout>
   );
 }

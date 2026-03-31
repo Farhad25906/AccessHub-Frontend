@@ -29,6 +29,10 @@ export const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['User'],
     }),
+    getRoles: builder.query({
+      query: () => '/roles',
+      providesTags: ['Permission'], // Or maybe Roles tag, but Permission suffices
+    }),
   }),
 });
 
@@ -36,5 +40,6 @@ export const {
   useGetAllUsersQuery, 
   useCreateUserMutation, 
   useUpdateUserMutation, 
-  useDeleteUserMutation 
+  useDeleteUserMutation,
+  useGetRolesQuery
 } = userApi;
