@@ -122,14 +122,14 @@ export default function UpdateRoleModal({ isOpen, onClose, user }: UpdateRoleMod
                     type="button"
                     onClick={onClose}
                     disabled={isUpdating}
-                    className="flex-1 py-3 px-4 rounded-xl bg-[var(--orange)]/10 text-[var(--orange)] font-semibold hover:bg-[var(--orange)] hover:text-white transition-all disabled:opacity-50 border border-[var(--orange)]/20"
+                    className="flex-1 py-3 px-4 rounded-[10px] bg-gray-100 text-gray-700 font-semibold hover:bg-gray-200 transition-all disabled:opacity-50"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isUpdating}
-                    className="flex-1 py-3 px-4 rounded-xl bg-[var(--orange-btn)] text-white font-bold hover:opacity-90 transition-all shadow-md active:translate-y-[1px] disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="flex-1 py-3 px-4 rounded-[10px] bg-orange-500 text-white font-semibold hover:opacity-90 transition-all shadow-md active:translate-y-[1px] disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {isUpdating ? (
                       <>

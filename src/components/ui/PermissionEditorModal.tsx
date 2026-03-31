@@ -187,7 +187,7 @@ export default function PermissionEditorModal({ isOpen, onClose, targetUser }: P
                   type="button"
                   onClick={() => setSelectedPermissions(initialPermissions)}
                   disabled={isSaving || isLoadingUser}
-                  className="px-4 py-2.5 rounded-xl bg-[var(--orange)]/10 text-[var(--orange)] text-sm font-semibold hover:bg-[var(--orange)] hover:text-white transition-all disabled:opacity-50 flex items-center gap-2 border border-[var(--orange)]/20"
+                  className="px-4 py-2.5 rounded-[10px] bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200 transition-all disabled:opacity-50 flex items-center gap-2"
                 >
                   <RotateCcw className="w-4 h-4" />
                   Reset
@@ -197,14 +197,14 @@ export default function PermissionEditorModal({ isOpen, onClose, targetUser }: P
                   type="button"
                   onClick={onClose}
                   disabled={isSaving}
-                  className="px-4 py-2.5 rounded-xl bg-[#F5F0EB] text-[var(--text-mid)] text-sm font-semibold hover:bg-[var(--orange)] hover:text-white transition-all disabled:opacity-50"
+                  className="px-4 py-2.5 rounded-[10px] bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200 transition-all disabled:opacity-50"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleSave}
                   disabled={isSaving || isLoadingUser}
-                  className="px-6 py-2.5 rounded-xl bg-[var(--orange-btn)] text-white text-sm font-bold hover:opacity-90 transition-all shadow-md active:translate-y-[1px] disabled:opacity-50 flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-[10px] bg-orange-500 text-white text-sm font-semibold hover:opacity-90 transition-all shadow-md active:translate-y-[1px] disabled:opacity-50 flex items-center gap-2"
                 >
                   {isSaving ? (
                     <>

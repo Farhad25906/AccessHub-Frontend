@@ -57,7 +57,7 @@ export default function UsersPage() {
           {canCreate && (
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="bg-[var(--orange-btn)] text-white px-5 py-2.5 rounded-xl flex items-center space-x-2 transition-all shadow-md active:translate-y-[1px] font-bold"
+              className="bg-orange-500 text-white px-5 py-2.5 rounded-[10px] flex items-center justify-center space-x-2 transition-all font-semibold disabled:opacity-50"
             >
               <UserPlus className="w-5 h-5" />
               <span>Add User</span>
@@ -100,7 +100,7 @@ export default function UsersPage() {
                         onClick={() => handleEditPermissions(user)}
                         disabled={!canEdit}
                         title="Edit Permissions"
-                        className="p-2.5 bg-[var(--orange)] text-white disabled:opacity-30 transition-all rounded-lg shadow-sm hover:opacity-90 active:translate-y-[1px]"
+                        className="p-2.5 bg-orange-500 text-white disabled:opacity-50 transition-all rounded-[10px] flex items-center justify-center"
                       >
                         <Shield className="w-4.5 h-4.5" />
                       </button>
@@ -108,14 +108,14 @@ export default function UsersPage() {
                         onClick={() => handleUpdateRole(user)}
                         disabled={!canEdit}
                         title="Edit User Role"
-                        className="p-2.5 bg-[var(--orange)] text-white disabled:opacity-30 transition-all rounded-lg shadow-sm hover:opacity-90 active:translate-y-[1px]"
+                        className="p-2.5 bg-orange-500 text-white disabled:opacity-50 transition-all rounded-[10px] flex items-center justify-center"
                       >
                         <Edit className="w-4.5 h-4.5" />
                       </button>
                       <button 
                         onClick={() => handleDelete(user.id)}
                         disabled={!canDelete || user.id === currentUser?.id}
-                        className="p-2.5 bg-[#1B1B1B] text-white disabled:opacity-30 transition-all rounded-lg shadow-sm hover:opacity-90 active:translate-y-[1px]"
+                        className="p-2.5 bg-gray-800 text-white disabled:opacity-50 transition-all rounded-[10px] flex items-center justify-center"
                       >
                         <Trash2 className="w-4.5 h-4.5" />
                       </button>

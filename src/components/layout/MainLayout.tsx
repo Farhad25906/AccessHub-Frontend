@@ -26,9 +26,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </div>
 
           <div className="flex items-center space-x-6">
-            <button className="relative w-10 h-10 bg-[var(--orange-btn)] text-white rounded-xl flex items-center justify-center shadow-md hover:opacity-90 transition-all active:translate-y-[1px]">
+            <button className="relative w-10 h-10 bg-orange-500 text-white rounded-[10px] flex items-center justify-center shadow-md hover:opacity-90 transition-all active:translate-y-[1px]">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-2 right-2 w-2 h-2 bg-white rounded-full border border-[var(--orange)]"></span>
+              <span className="absolute top-2 right-2 w-2 h-2 bg-white rounded-full border border-orange-500"></span>
             </button>
             
             <div className="h-8 w-px bg-[var(--border)]"></div>

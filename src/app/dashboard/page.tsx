@@ -72,19 +72,19 @@ export default function Dashboard() {
                 <button
                   key={action.label}
                   disabled={!user?.permissions.includes(action.permission)}
-                  className={`w-full flex items-center justify-between p-4 rounded-xl transition-all border ${
+                  className={`w-full flex items-center justify-between p-4 rounded-[10px] transition-all border ${
                     user?.permissions.includes(action.permission)
-                      ? 'bg-[var(--orange-btn)] border-transparent text-white shadow-[0_4px_20px_rgba(242,101,34,0.3)] hover:opacity-90 active:translate-y-[1px]'
-                      : 'bg-[#F5F0EB] border-[var(--border)] opacity-60 grayscale cursor-not-allowed text-[var(--text-mid)]'
+                      ? 'bg-orange-500 border-transparent text-white shadow-md hover:opacity-90 active:translate-y-[1px]'
+                      : 'bg-gray-100 border-gray-200 opacity-60 grayscale cursor-not-allowed text-gray-500'
                   }`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className={`p-2 rounded-lg ${user?.permissions.includes(action.permission) ? 'bg-white/20 border border-white/30' : 'bg-[var(--sidebar-bg)] border border-[var(--border)]'}`}>
-                      <action.icon className={`w-5 h-5 ${user?.permissions.includes(action.permission) ? 'text-white' : 'text-[var(--orange)]'}`} />
+                    <div className={`p-2 rounded-lg ${user?.permissions.includes(action.permission) ? 'bg-white/20 border border-white/30' : 'bg-gray-200 border border-gray-300'}`}>
+                      <action.icon className={`w-5 h-5 ${user?.permissions.includes(action.permission) ? 'text-white' : 'text-gray-400'}`} />
                     </div>
                     <span className="font-bold text-sm tracking-tight">{action.label}</span>
                   </div>
-                  <ChevronRight className={`w-4 h-4 ${user?.permissions.includes(action.permission) ? 'text-white' : 'text-[var(--text-light)]'}`} />
+                  <ChevronRight className={`w-4 h-4 ${user?.permissions.includes(action.permission) ? 'text-white' : 'text-gray-400'}`} />
                 </button>
               ))}
             </div>
