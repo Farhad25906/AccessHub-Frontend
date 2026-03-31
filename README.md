@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AccessHub - Frontend 🛡️🖌️
 
-## Getting Started
+Premium, permission-driven Role-Based Access Control (RBAC) dashboard built with Next.js 14.
 
-First, run the development server:
+## 🔗 Repository & Live Demo
+- **GitHub Repository**: [https://github.com/Farhad25906/AccessHub-Frontend](https://github.com/Farhad25906/AccessHub-Frontend)
+- **Live Demo (Vercel)**: [https://access-hub-frontend.vercel.app/](https://access-hub-frontend.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Technologies
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS (Premium Light Theme - White, Orange, Black)
+- **State Management**: Redux Toolkit & RTK Query
+- **Authentication**: JWT & Cookie-based (HttpOnly)
+- **Animations**: Framer Motion (Glassmorphism & Smooth Transitions)
+- **Icons**: Lucide React
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
+- **Dynamic Permission-Driven UI**: Components and pages automatically hide/disable based on "Permission Atoms," regardless of the user's role label.
+- **Admin Management Console**: Dedicated UI for real-time user creation, role assignment, and granular permission editing.
+- **Premium Design Language**: High-contrast, accessibility-first theme using curated orange accents (`#F26522`).
+- **Standardized UI System**: All primary actions and buttons follow a strict "Orange-500 Rounded-10px" styling for consistent brand identity.
+- **Role-Agnostic Middleware**: Server-side middleware protects routes based on dynamic permission sets stored in secure cookies.
+- **Audit Visualization**: Live stream of system activity and permission change history.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Setup & Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Farhad25906/AccessHub-Frontend.git
+   cd AccessHub-Frontend
+   ```
 
-## Learn More
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Configure Environment Variables**:
+   Create a `.env.local` file:
+   ```env
+   NEXT_PUBLIC_API_URL="https://access-hub-backend.vercel.app/api"
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗️ Project Architecture
+- **`/app`**: Next.js 14 app router for file-based navigation and route guards.
+- **`/redux`**: Centralized store and RTK Query API definitions for seamless backend synchronization.
+- **`/components/ui`**: Atomic UI components (Modals, Buttons, Cards) following the Orange-Black design system.
+- **`/components/layout`**: Persistent sidebar and header with real-time profile management.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Developed by [Farhad](https://github.com/Farhad25906)
