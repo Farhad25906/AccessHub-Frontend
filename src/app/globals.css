@@ -3,6 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Obliq Auth Variables */
+  --orange:     #F26522;
+  --orange-lt:  #F7924A;
+  --orange-btn: linear-gradient(135deg, #F47B3A 0%, #EF5B25 100%);
+  --cream:      #FDF6EF;
+  --sidebar-bg: #FAF7F4;
+  --text-dark:  #1A1A1A;
+  --text-mid:   #6B6B6B;
+  --text-light: #AEAEAD;
+  --border:     #E8E3DD;
+  --radius:     14px;
 }
 
 @theme inline {
@@ -22,5 +34,36 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
 }
+
+/* Auth Login Artwork Styles */
+.bg-canvas {
+  position: absolute; inset: 0;
+  background: #E8A04A;
+  overflow: hidden;
+}
+.wave {
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  border-radius: 50%;
+}
+.w1 { background: #D95F2B; height: 520px; top: -180px; animation: drift1 8s ease-in-out infinite alternate; }
+.w2 { background: #E8763A; height: 480px; top: -60px; animation: drift2 9s ease-in-out infinite alternate; }
+.w3 { background: #F5A233; height: 420px; top: 80px;  animation: drift1 10s ease-in-out infinite alternate-reverse; }
+.w4 { background: #F7C06A; height: 480px; top: 220px; animation: drift2 7s ease-in-out infinite alternate; }
+.w5 { background: #FAD58A; height: 500px; top: 360px; animation: drift1 11s ease-in-out infinite alternate; }
+.w6 { background: #C0452A; height: 380px; top: 480px; animation: drift2 8.5s ease-in-out infinite alternate-reverse; }
+
+@keyframes drift1 { from { transform: translateX(-30px) scaleY(1); } to { transform: translateX(30px) scaleY(1.04); } }
+@keyframes drift2 { from { transform: translateX(20px) scaleY(1); } to { transform: translateX(-20px) scaleY(0.97); } }
+
+.overlay-window {
+  animation: slideIn .6s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes slideIn { from { transform: translateY(-50%) translateX(120%); opacity: 0; } to { transform: translateY(-50%) translateX(0); opacity: 1; } }
+
+.tasks-scroll::-webkit-scrollbar { width: 3px; }
+.tasks-scroll::-webkit-scrollbar-thumb { background: #E0DAD4; border-radius: 3px; }
+
